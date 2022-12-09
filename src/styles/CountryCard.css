@@ -1,0 +1,16 @@
+.country-name{
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.card-info{
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 300;
+    margin-bottom: 8px;
+}
+
+.card-info-label{
+    font-weight: 600;
+}
