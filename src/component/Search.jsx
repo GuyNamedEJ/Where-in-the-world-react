@@ -7,27 +7,31 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { Box } from "@mui/system";
 
-export default function Search({getFilter}) {
+export default function Search({searchCountry,getFilter }) {
   const [region, setRegion] = useState("");
 
+  const handleSearch = (event) => {
+     // event.preventDefault();
+    // searchCountry(event.target.value)
+    searchCountry(event.target.value);
+  };
   const handleChange = (event) => {
-    event.preventDefault();
     setRegion(event.target.value);
-    getFilter(event.target.value)
+    getFilter(event.target.value);
   };
   return (
-    <Box 
-    className="container"
-    sx={{mb:'32px'}}>
+    <Box className="container" sx={{ mb: "32px" }}>
       <div className="search-container">
-        <TextField
-          sx={{ width: "343px", mb: "40px" }}
-          id="outlined-basic"
-          label="Search for a country"
-          variant="outlined"
-          placeholder="Search for a country..."
-        />
+      <TextField
+            onChange={handleSearch}
+            sx={{ width: "343px", mb: "40px" }}
+            id="outlined-basic"
+            label="Search for a country"
+            variant="outlined"
+            placeholder="Search for a country..."
+          />
         <FormControl fullWidth>
+          
           <InputLabel id="region-filter-label">Region</InputLabel>
           <Select
             sx={{ width: "200px" }}
