@@ -6,23 +6,24 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { Box } from "@mui/system";
+import { Paper } from "@mui/material";
 
 export default function Search({searchCountry,getFilter }) {
-  const [region, setRegion] = useState("");
+  const [region, setRegion] = useState("All");
 
   const handleSearch = (event) => {
-     // event.preventDefault();
-    // searchCountry(event.target.value)
     searchCountry(event.target.value);
   };
+
   const handleChange = (event) => {
     setRegion(event.target.value);
     getFilter(event.target.value);
   };
+
   return (
     <Box className="container" sx={{ mb: "32px" }}>
       <div className="search-container">
-      <TextField
+      <TextField 
             onChange={handleSearch}
             sx={{ width: "343px", mb: "40px" }}
             id="outlined-basic"
