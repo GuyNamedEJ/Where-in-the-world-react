@@ -1,3 +1,4 @@
+import '../src/styles/App.css'
 import { useEffect, useState } from "react";
 import Navbar from "./component/Navbar";
 import Search from "./component/Search";
@@ -37,8 +38,11 @@ export default function App() {
   return (
     <div>
       <Navbar />
+      <div className="container">
       <Search searchCountry={handleSearch} getFilter={handleFilter} />
       <CountryList countries={countries} regionFilter ={filter} searchKey={searchTerm}/>
+      </div>
+      
     </div>
   );
 }

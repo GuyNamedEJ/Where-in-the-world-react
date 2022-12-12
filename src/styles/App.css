@@ -13,3 +13,11 @@ body{
 .container{
     padding:0 16px;
 }
+
+
+@media (min-width:1440px)
+{
+    .container{
+        margin: 0 80px;
+    }
+}

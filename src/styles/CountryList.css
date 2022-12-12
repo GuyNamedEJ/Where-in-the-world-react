@@ -4,3 +4,12 @@
     align-items: center;
     gap:40px;
 }
+
+@media(min-width:768px)
+{
+    .card-container{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+}

@@ -1,3 +1,4 @@
+import "../styles/Search.css";
 import React from "react";
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
@@ -8,7 +9,7 @@ import Select from "@mui/material/Select";
 import { Box } from "@mui/system";
 import { Paper } from "@mui/material";
 
-export default function Search({searchCountry,getFilter }) {
+export default function Search({ searchCountry, getFilter }) {
   const [region, setRegion] = useState("All");
 
   const handleSearch = (event) => {
@@ -21,18 +22,17 @@ export default function Search({searchCountry,getFilter }) {
   };
 
   return (
-    <Box className="container" sx={{ mb: "32px" }}>
+    <Box sx={{ mb: "32px" }}>
       <div className="search-container">
-      <TextField 
-            onChange={handleSearch}
-            sx={{ width: "343px", mb: "40px" }}
-            id="outlined-basic"
-            label="Search for a country"
-            variant="outlined"
-            placeholder="Search for a country..."
-          />
-        <FormControl fullWidth>
-          
+        <TextField
+          onChange={handleSearch}
+          sx={{ width: "343px", }}
+          id="outlined-basic"
+          label="Search for a country"
+          variant="outlined"
+          placeholder="Search for a country..."
+        />
+        <FormControl >
           <InputLabel id="region-filter-label">Region</InputLabel>
           <Select
             sx={{ width: "200px" }}
