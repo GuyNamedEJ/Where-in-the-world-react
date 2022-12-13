@@ -8,12 +8,17 @@
 body{
     font-family: 'Nunito Sans', sans-serif;
     background-color: #FAFAFA;
+    color:black;
 }
 
 .container{
     padding:0 16px;
 }
 
+.dark-mode{
+    background-color:#202C36;
+    color:white;
+}
 
 @media (min-width:1440px)
 {
