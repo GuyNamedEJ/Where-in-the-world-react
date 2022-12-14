@@ -16,8 +16,9 @@ export default function CountryDetail() {
   const location = useLocation();
   const { country } = location.state;
  
-  const currencies = Object.values(country.currencies)
-  const languages = Object.values(country.languages)
+  console.log(country)
+  // const currencies = Object.values(country.currencies)
+  // const languages = Object.values(country.languages)
   // const borderCountries = country.borders
  
 
@@ -32,19 +33,41 @@ export default function CountryDetail() {
       getNames();
     }
   };
+
+  const setCurrency = () => {
+    if (country.currencies == undefined) {
+      console.log("No Currency");
+      setCurrenciesArray([{ currencies: "N/A" }]);
+      getCurrencies();
+    } else {
+      setCurrenciesArray(Object.values(country.name.nativeName));
+      getCurrencies();
+    }
+  }
+  
+  const setLanguages = () => {
+    if (country.languages == undefined) {
+      console.log("No languages");
+      setLanguagesArray([{ languages: "N/A" }]);
+      getLanguages();
+    } else {
+      setLanguagesArray(Object.values(country.languages));
+      getLanguages();
+    }
+  }
   
   const getCurrencies = () =>{
     let result = "";
-    for (let i = 0; i < currencies.length; i++) {
-      i == currencies.length - 1 ? (result = result + currencies[i].name + " ") : (result = result + currencies[i].name + ", ");
+    for (let i = 0; i < currenciesArray.length; i++) {
+      i == currenciesArray.length - 1 ? (result = result + currenciesArray[i].name + " ") : (result = result + currenciesArray[i].name + ", ");
     }
     setCurrenciesArray(result);
   }
 
   const getLanguages = () =>{
     let result = "";
-    for (let i = 0; i < languages.length; i++) {
-      i == languages.length - 1 ? (result = result + languages[i] + " ") : (result = result + languages[i] + ", ");
+    for (let i = 0; i < languagesArray.length; i++) {
+      i == languagesArray.length - 1 ? (result = result + languagesArray[i] + " ") : (result = result + languagesArray[i] + ", ");
     }
     setLanguagesArray(result);
     
@@ -64,8 +87,8 @@ export default function CountryDetail() {
 
   useEffect(() => {
     setArray(),
-    getCurrencies(),
-    getLanguages()
+    setCurrency(),
+    setLanguages()
   }, [nativeNames]);
 
   return (
