@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import Navbar from "../component/Navbar";
 import Search from "../component/Search";
 import GetCountries from "../Api";
 import CountryList from "../component/CountryList";
-import { Route, Routes } from "react-router-dom";
-import CountryDetail from './CountryDetail';
+
 
 export default function App() {
   const [countries, setCountries] = useState([]);

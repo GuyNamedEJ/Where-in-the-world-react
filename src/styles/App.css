@@ -23,6 +23,6 @@ body{
 @media (min-width:1440px)
 {
     .container{
-        margin: 0 80px;
+        padding: 0 80px;
     }
 }
