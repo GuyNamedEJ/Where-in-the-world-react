@@ -20,14 +20,14 @@ export default function CountryDetail() {
   // console.log(`Languages: ${country.languages}`)
   // console.log(`Currency: ${Object.values(country.currencies)}`)
   // console.log(`Native Names: ${country.name.nativeName}`)
-  console.log(country);
+  // console.log(country);
   // const currencies = Object.values(country.currencies)
   // const languages = Object.values(country.languages)
   // const borderCountries = country.borders
 
   const setArray = () => {
     if (country.name.nativeName == undefined) {
-      console.log("No native names");
+      // console.log("No native names");
       setNativeNameArray([{ common: "No Native Names" }]);
       getNames();
     } else {
@@ -38,20 +38,20 @@ export default function CountryDetail() {
 
   const setCurrency = () => {
     if (country.currencies == undefined) {
-      console.log("N/A");
+      // console.log("N/A");
       setCurrencyString([{ name: "N/A" }]);
       getCurrencies();
     } else {
-      console.log('setting currencies')
+      // console.log('setting currencies')
       setCurrencyString(Object.values(country.currencies));
-      console.log(`Currency is: ${currencyString}`)
+      // console.log(`Currency is: ${currencyString}`)
       getCurrencies();
     }
   };
 
   const setLanguages = () => {
     if (country.languages == undefined) {
-      console.log("No native names");
+      // console.log("No native names");
       setLanguagesArray([ "N/A" ]);
       getLanguages();
     } else {
@@ -60,11 +60,11 @@ export default function CountryDetail() {
     }
   };
 
-  console.log(`Languages Array: ${languagesArray}`)
+  // console.log(`Languages Array: ${languagesArray}`)
 
   const getCurrencies = () => {
     let result = "";
-    console.log(currencyString[0])
+    // console.log(currencyString[0])
     for (let i = 0; i < currencyString.length; i++) {
       i == currencyString.length - 1
         ? (result = result + currencyString[i].name + " ")
