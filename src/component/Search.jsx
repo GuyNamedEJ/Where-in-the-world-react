@@ -26,7 +26,8 @@ export default function Search({ searchCountry, getFilter }) {
       <div className="search-container">
         <TextField
           onChange={handleSearch}
-          sx={{ width: "343px", }}
+          sx={{ width: "343px",
+          backgroundColor: 'white' }}
           id="outlined-basic"
           label="Search for a country"
           variant="outlined"
@@ -35,12 +36,14 @@ export default function Search({ searchCountry, getFilter }) {
         <FormControl >
           <InputLabel id="region-filter-label">Region</InputLabel>
           <Select
-            sx={{ width: "200px" }}
+            sx={{ width: "200px",
+            backgroundColor: 'white' }}
             labelId="region-filter-label"
             id="region-filter"
             value={region}
             label="Region"
             onChange={handleChange}
+
           >
             <MenuItem value={"All"}>All</MenuItem>
             <MenuItem value={"Africa"}>Africa</MenuItem>
