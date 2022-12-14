@@ -1,32 +1,34 @@
 import "../styles/CountryDetails.css";
-import BorderCountries from '../component/BorderCountry'
+import BorderCountries from "../component/BorderCountry";
 import React from "react";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export default function CountryDetail() {
   const [nativeNames, setNativeNames] = useState();
-  const [nativeNameArray, setNativeNameArray] = useState([])
-  const [currenciesArray, setCurrenciesArray] = useState([])
-  const [languagesArray, setLanguagesArray] = useState([])
+  const [currencies, setCurrencies] = useState();
+  const [nativeNameArray, setNativeNameArray] = useState([]);
+  const [currencyString, setCurrencyString] = useState([]);
+  const [languagesString, setLanguagesString] = useState([]);
+  const [languagesArray, setLanguagesArray] = useState([]);
 
   const location = useLocation();
   const { country } = location.state;
- 
-  console.log(country)
+  // console.log(`Languages: ${country.languages}`)
+  // console.log(`Currency: ${Object.values(country.currencies)}`)
+  // console.log(`Native Names: ${country.name.nativeName}`)
+  console.log(country);
   // const currencies = Object.values(country.currencies)
   // const languages = Object.values(country.languages)
   // const borderCountries = country.borders
- 
-
 
   const setArray = () => {
     if (country.name.nativeName == undefined) {
       console.log("No native names");
-      setNativeNameArray([{ common: "N/A" }]);
+      setNativeNameArray([{ common: "No Native Names" }]);
       getNames();
     } else {
       setNativeNameArray(Object.values(country.name.nativeName));
@@ -36,42 +38,51 @@ export default function CountryDetail() {
 
   const setCurrency = () => {
     if (country.currencies == undefined) {
-      console.log("No Currency");
-      setCurrenciesArray([{ currencies: "N/A" }]);
+      console.log("N/A");
+      setCurrencyString([{ name: "N/A" }]);
       getCurrencies();
     } else {
-      setCurrenciesArray(Object.values(country.name.nativeName));
+      console.log('setting currencies')
+      setCurrencyString(Object.values(country.currencies));
+      console.log(`Currency is: ${currencyString}`)
       getCurrencies();
     }
-  }
-  
+  };
+
   const setLanguages = () => {
     if (country.languages == undefined) {
-      console.log("No languages");
-      setLanguagesArray([{ languages: "N/A" }]);
+      console.log("No native names");
+      setLanguagesArray([ "N/A" ]);
       getLanguages();
     } else {
       setLanguagesArray(Object.values(country.languages));
       getLanguages();
     }
-  }
-  
-  const getCurrencies = () =>{
-    let result = "";
-    for (let i = 0; i < currenciesArray.length; i++) {
-      i == currenciesArray.length - 1 ? (result = result + currenciesArray[i].name + " ") : (result = result + currenciesArray[i].name + ", ");
-    }
-    setCurrenciesArray(result);
-  }
+  };
 
-  const getLanguages = () =>{
+  console.log(`Languages Array: ${languagesArray}`)
+
+  const getCurrencies = () => {
+    let result = "";
+    console.log(currencyString[0])
+    for (let i = 0; i < currencyString.length; i++) {
+      i == currencyString.length - 1
+        ? (result = result + currencyString[i].name + " ")
+        : (result = result + currencyString[i].name + ", ");
+    }
+
+    setCurrencies(result);
+  };
+
+  const getLanguages = () => {
     let result = "";
     for (let i = 0; i < languagesArray.length; i++) {
-      i == languagesArray.length - 1 ? (result = result + languagesArray[i] + " ") : (result = result + languagesArray[i] + ", ");
+      i == languagesArray.length - 1
+        ? (result = result + languagesArray[i] + " ")
+        : (result = result + languagesArray[i] + ", ");
     }
-    setLanguagesArray(result);
-    
-  }
+    setLanguagesString(result);
+  };
 
   const getNames = () => {
     let result = "";
@@ -86,19 +97,25 @@ export default function CountryDetail() {
   };
 
   useEffect(() => {
-    setArray(),
-    setCurrency(),
-    setLanguages()
+    setArray(), setCurrency(), setLanguages();
   }, [nativeNames]);
 
   return (
     <div>
-    <Button sx={{
-      color:'black',
-      backgroundColor:'white',
-      "&:hover":{backgroundColor: 'grey',
-      color:'white'}
-    }} variant="contained" startIcon={<ArrowBackIcon />} component={Link} to="/" role="button">Back</Button>
+      <Button
+        sx={{
+          color: "black",
+          backgroundColor: "white",
+          "&:hover": { backgroundColor: "grey", color: "white" },
+        }}
+        variant="contained"
+        startIcon={<ArrowBackIcon />}
+        component={Link}
+        to="/"
+        role="button"
+      >
+        Back
+      </Button>
       <div className="country-details">
         <img
           className="flag"
@@ -138,10 +155,10 @@ export default function CountryDetail() {
                 {country.tld}
               </p>
               <p>
-                <span className="label">Currency: </span> {currenciesArray}
+                <span className="label">Currency: </span> {currencies}
               </p>
               <p>
-                <span className="label">Languages: </span> {languagesArray}
+                <span className="label">Languages: </span> {languagesString}
               </p>
             </div>
           </div>
