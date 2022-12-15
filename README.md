@@ -3,11 +3,11 @@
 <img src="https://res.cloudinary.com/dz209s6jk/image/upload/v1554827486/Challenges/jfrcfmcisi1xiwm4rl1s.jpg"/>
 </a>
 
-Platform to help build momentous milestones along with your friends and family! Travelara makes Dream Trips a Reality!
+A React app that pulls data from a country api and displays cards for each country. Clicking a card will open it up to display
+more information about it. 
 
 
-## Tech used: ![HTML5 BADGE](https://img.shields.io/static/v1?label=|&message=HTML5&color=23555f&style=plastic&logo=html5)![CSS BADGE](https://img.shields.io/static/v1?label=|&message=CSS3&color=285f65&style=plastic&logo=css3)![SASS BADGE](https://img.shields.io/static/v1?label=|&message=SASS&color=2b625f&style=plastic&logo=sass)![BOOTSTRAP BADGE](https://img.shields.io/static/v1?label=|&message=BOOTSTRAP&color=316c5e&style=plastic&logo=bootstrap)![JAVASCRIPT BADGE](https://img.shields.io/static/v1?label=|&message=JAVASCRIPT&color=3c7f5d&style=plastic&logo=javascript)![EXPRESS BADGE](https://img.shields.io/static/v1?label=|&message=EXPRESS&color=bbb111&style=plastic&logo=express)![MONGODB BADGE](https://img.shields.io/static/v1?label=|&message=MONGO-DB&color=cdd148&style=plastic&logo=mongodb)
-
+## Tech used: ![HTML5 BADGE](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)![CSS BADGE](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)![JAVASCRIPT BADGE](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)![REACT BADGE](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 
 ## Optimizations
 One of the first thing I would optimize is the UX of how someone schedules a vacation. I would also work on the scalability of the API used. Lastly I would make it so that a person can swipe with friends in real time.
