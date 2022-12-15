@@ -1,6 +1,6 @@
 # REST Countries API with color theme switcher: <a href="https://project-globetrotter.netlify.app/" target="_blank">Visit Here</a>
 <a href="https://travelara.herokuapp.com" target="_blank">
-<img src="https://github.com/CharlesCreativeContent/CharlesCreativeContent/blob/main/images/gif1.gif?raw=true" width="100%" alt="Travelara.org"/>
+<img src="https://res.cloudinary.com/dz209s6jk/image/upload/v1554827486/Challenges/jfrcfmcisi1xiwm4rl1s.jpg"/>
 </a>
 
 Platform to help build momentous milestones along with your friends and family! Travelara makes Dream Trips a Reality!
