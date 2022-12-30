@@ -29,7 +29,7 @@ export default function CountryCard({ country }) {
             {country.region}
           </p>
           <p className="card-info">
-            <span className="card-info-label">Capital: </span>
+            <span className="card-info-label">Capital City: </span>
             {country.capital}
           </p>
         </CardContent>
