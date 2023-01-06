@@ -102,7 +102,9 @@ export default function CountryDetail() {
 
   useEffect(() => {
     setArray(), setCurrency(), setLanguages();
-  }, [nativeNames]);
+  }, [nativeNames, currencies,languagesString]);
+
+  
 
   return (
     <div>
