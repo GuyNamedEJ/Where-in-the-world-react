@@ -1,5 +1,4 @@
 import '../src/styles/App.css'
-import { useEffect, useState } from "react";
 import Navbar from "./component/Navbar";
 import { Route, Routes } from "react-router-dom";
 import CountryDetail from './pages/CountryDetail';

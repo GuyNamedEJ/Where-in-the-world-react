@@ -17,14 +17,7 @@ export default function CountryDetail() {
 
   const location = useLocation();
   const { country } = location.state;
-  // console.log(`Languages: ${country.languages}`)
-  // console.log(`Currency: ${Object.values(country.currencies)}`)
-  // console.log(`Native Names: ${country.name.nativeName}`)
-  // console.log(country);
-  // const currencies = Object.values(country.currencies)
-  // const languages = Object.values(country.languages)
-  // const borderCountries = country.borders
-
+  
   const setArray = () => {
     if (country.name.nativeName == undefined) {
       // console.log("No native names");
@@ -96,6 +89,17 @@ export default function CountryDetail() {
     setNativeNames(result);
   };
 
+  function DisplayBorders({hasBorders}) {
+    const isEmpty = hasBorders;
+    if (!isEmpty) {
+      return <BorderCountries borders={country.borders} />
+    }
+    else{
+      return <p>No Bordering Countries</p>
+    }
+
+  }
+
   useEffect(() => {
     setArray(), setCurrency(), setLanguages();
   }, [nativeNames]);
@@ -162,10 +166,10 @@ export default function CountryDetail() {
               </p>
             </div>
           </div>
-          {/* <div className="border-countries">
+          <div className="border-countries">
             <p className="label">Border Countries:</p>
-            <BorderCountries borders={borderCountries}/>
-          </div> */}
+            <DisplayBorders hasBorders = {country.borders !== undefined ? false : true}/>
+          </div>
         </div>
       </div>
     </div>
