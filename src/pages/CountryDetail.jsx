@@ -10,16 +10,22 @@ import { Link } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export default function CountryDetail() {
-  // const [nativeNames, setNativeNames] = useState();
-  // const [nativeNameArray, setNativeNameArray] = useState([]);
 
   const location = useLocation();
   const { country } = location.state;
   
+  /**
+   * Native names, Currency, and borders are arrays of their own objects and may or may not exist/contain data
+   * The following functions check to see if they have data, if they do, they will return a component with their respective data
+   * 
+   * The reason I broke these up into seperate components is that I was getting an issue with render data on the page. 
+   * I had a useEffect method that would run if the country changed, but It was 1 render behind. I.E. You select USA, no languages, currency appeared. Select the Mexico border country button and Mexico would appear with USA currency and languaes instead of the data for Mexico
+   */
   function DisplayNativeNames({hasNativeName}) {
     const isEmpty = hasNativeName;
-    console.log(country)
+    // console.log(country)
     if (!isEmpty) {
+      // Pass the nativeNames array to the component
       return <NativeNames nativeName={country.name.nativeName} />
     }
   }
@@ -27,8 +33,10 @@ export default function CountryDetail() {
   function DisplayBorders({hasBorders}) {
     const isEmpty = hasBorders;
     if (!isEmpty) {
+       // Pass the border countries array to the component
       return <BorderCountries borders={country.borders} />
     }
+    // if no border countries exist, return a para element with text saying "No bordering countries"
     else{
       return <p>No Bordering Countries</p>
     }
@@ -37,12 +45,14 @@ export default function CountryDetail() {
   function DisplayLanguages({hasLanguages}) {
     const isEmpty = hasLanguages;
     if (!isEmpty) {
+      // Pass the languages array to the component
       return <Languages languages={country.languages} />
     }
-    
   }
 
+
   function DisplayCurrency() {
+    // Pass the border countries array to the component
     return <Currencies currency={country.currencies} />
   }
 
@@ -75,6 +85,7 @@ export default function CountryDetail() {
             <div className="details-left">
               <p>
                 <span className="label">Native Names: </span>
+                {/**Display the data given returned from the corresponding function */}
                 <DisplayNativeNames hasNativeName = {country.name.nativeName !== undefined ? false : true}/>
               </p>
               <p>
@@ -102,6 +113,7 @@ export default function CountryDetail() {
               </p>
               <p>
                 <span className="label">Currency: </span>
+                {/**Display the data given returned from the corresponding function */}
                 <DisplayCurrency />
               </p>
               <p>
@@ -111,6 +123,7 @@ export default function CountryDetail() {
           </div>
           <div className="border-countries">
             <p className="label">Border Countries:</p>
+            {/**Display the data given returned from the corresponding function */}
             <DisplayBorders hasBorders = {country.borders !== undefined ? false : true}/>
           </div>
         </div>
