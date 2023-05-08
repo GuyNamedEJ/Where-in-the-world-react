@@ -1,4 +1,4 @@
-# Around the World App: <a href="https://project-globetrotter.netlify.app/" target="_blank">Visit Here</a>
+# Around the World App: <a href="https://project-globetrotter.netlify.app/" target="_blank">View Project</a>
 <a href="https://project-globetrotter.netlify.app/" target="_blank">
 <img src="https://res.cloudinary.com/dz209s6jk/image/upload/v1554827486/Challenges/jfrcfmcisi1xiwm4rl1s.jpg"/>
 </a>
